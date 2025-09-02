@@ -123,7 +123,7 @@ jobs:
       - name: Publish [linux]
         run: |
           dotnet publish BBDown -r linux-x64 -c Release -o artifact
-          dotnet publish BBDown -r linux-arm64 -c Release -o artifact-arm64
+          dotnet publish -c Release -r linux-bionic-arm64 --self-contained true -p:PublishSingleFile=true -p:PublishTrimmed=true -o ./artifact-arm64
 
       - name: Package [linux]
         run: |
